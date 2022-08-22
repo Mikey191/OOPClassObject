@@ -1,0 +1,226 @@
+
+#include<iostream>
+#include <math.h>
+using namespace std;
+
+class TPoint {
+	int y;
+public:
+	int x;
+	//процедура которая устанавливает поле у
+	void SetY(int y1);
+	int GetY();
+};
+
+void TPoint::SetY(int y1)
+{
+	y = y1;
+}
+
+int TPoint::GetY()
+{
+	return y;
+}
+
+int main()
+{
+	TPoint p;//объект класса
+	p.x = 10;
+	p.SetY(44);
+	cout << p.x << " " << p.GetY()<< endl;
+	return 0;
+}
+===
+// 2.Создать класс хранящий число любого типа. Напишите публичные методы,
+// которые возвращают квадрат и корень этого числа.
+// Создайте и проинициализируйте 2 объекта этого класса.
+// Для обоих объектов выведите на экран оригинальное число, а так же квадрат и корень.
+#include<iostream>
+#include <math.h>//для использования функции sqrt()
+using namespace std;
+
+class Pointer {
+public:
+	int x;
+	int qvd(int x1)
+	{
+		x1 = x;
+		return x1 * x1;
+	}
+	int sqr(int x1)
+	{
+		x1 = x;
+		return sqrt(x1);
+	}
+};
+
+int main()
+{
+	Pointer p1;
+	Pointer p2;
+	p1.x = 9;
+	p2.x = 16;
+	cout << p1.x << endl;
+	cout << p1.qvd(p1.x) << endl;
+	cout << p1.sqr(p1.x) << endl;
+	cout << endl;
+	cout << p2.x << endl;
+	cout << p2.qvd(p2.x) << endl;
+	cout << p2.sqr(p2.x) << endl;
+	cout << endl;
+	return 0;
+}
+===
+
+// 3.для вывода на экран информации из задания 2 напишите отдельную процедуру,
+// котороя в качесвте параметра получает объект
+#include<iostream>
+#include <math.h>//для использования функции sqrt()
+using namespace std;
+
+class Pointer {
+public:
+	int x;
+	int qvd(int x1)
+	{
+		x1 = x;
+		return x1 * x1;
+	}
+	int sqr(int x1)
+	{
+		x1 = x;
+		return sqrt(x1);
+	}
+};
+
+void printP(Pointer p)
+{
+	cout << p.x << endl;
+	cout << p.qvd(p.x) << endl;
+	cout << p.sqr(p.x) << endl;
+}
+
+int main()
+{
+	Pointer p1;
+	Pointer p2;
+	p1.x = 9;
+	p2.x = 16;
+	
+	printP(p1);
+	cout << endl;
+	printP(p2);
+	
+	return 0;
+}
+===
+// 4.измените класс из задания 2 так, что бы хранимое число можно было задать и 
+// прочитать только через методы
+#include<iostream>
+#include <math.h>//для использования функции sqrt()
+using namespace std;
+
+class Pointer {
+	int x;
+public:
+	void SetX(int x1)//Set - записать значение
+	{
+		x = x1;
+	}
+	int GetX()//Get - получить значение
+	{
+		return x;
+	}
+	int qvd(int x1)
+	{
+		x1 = x;
+		return x1 * x1;
+	}
+	int sqr(int x1)
+	{
+		x1 = x;
+		return sqrt(x1);
+	}
+};
+
+void printP(Pointer p)
+{
+	cout << p.GetX() << endl;
+	cout << p.qvd(p.GetX()) << endl;
+	cout << p.sqr(p.GetX()) << endl;
+}
+
+int main()
+{
+	Pointer p1;
+	Pointer p2;
+	p1.SetX(9);
+	p2.SetX(16);
+	
+	printP(p1);
+	cout << endl;
+	printP(p2);
+	
+	return 0;
+}
+===
+// 5.изменить класс из задания 4 так, что бы квадрат и корень расчитывались в момент 
+// задания хранимого числа. Для этого добавьте 2 закрытых поля,
+// а функции возвращающие квадрат и корень пределайте так чтобы
+// они возвращали значения новых полей
+
+#include<iostream>
+#include <math.h>//для использования функции sqrt()
+using namespace std;
+
+class Pointer {
+	int x;
+	int Qvd;
+	int Sqr;
+public:
+	void SetX(int x1)//Set - записать значение
+	{
+		x = x1;
+	}
+	int GetX()//Get - получить значение
+	{
+		return x;
+	}
+	int qvd(int x1)
+	{
+		x1 = x;
+		Qvd = x1 * x1;
+		return Qvd;
+	}
+	int sqr(int x1)
+	{
+		x1 = x;
+		Sqr = sqrt(x1);
+		return Sqr;
+	}
+};
+
+void printP(Pointer p)
+{
+	cout << p.GetX() << endl;
+	cout << p.qvd(p.GetX()) << endl;
+	cout << p.sqr(p.GetX()) << endl;
+}
+
+int main()
+{
+	Pointer p1;
+	Pointer p2;
+	p1.SetX(9);
+	p2.SetX(16);
+	
+	printP(p1);
+	cout << endl;
+	printP(p2);
+	
+	return 0;
+}
+===
+
+
+
